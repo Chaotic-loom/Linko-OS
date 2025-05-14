@@ -39,7 +39,7 @@ The following terms are used in this document:
 == TL;DR
 
 ----
-git clone https://github.com/raspberrypi/rpi-image-gen.git
+git clone https://github.com/restonic4/Linko-OS.git
 cd rpi-image-gen
 sudo ./install_deps.sh
 ./build.sh

@@ -1,0 +1,8 @@
+# All variables will be translated to lower case and made available to hooks
+# Variables set in the .cfg file can be overridden
+
+IMAGE_NAME=linko
+DEVICE_HOSTNAME=linko
+
+device_user1=player
+dEvIcE_UsER1pASs=player
