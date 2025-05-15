@@ -9,7 +9,7 @@ set -e
 
 # Variables
 THEME_NAME="linko"
-SRC_DIR="$HOME/Linko-OS/image/mbr/simple_dual/plymouth/$THEME_NAME"
+SRC_DIR="/home/restonic4/Linko-OS/image/mbr/simple_dual/plymouth/$THEME_NAME"
 DEST_DIR="/usr/share/plymouth/themes/$THEME_NAME"
 PLYMOUTH_ALT="/usr/share/plymouth/themes/default.plymouth"
 
