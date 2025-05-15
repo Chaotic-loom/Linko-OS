@@ -24,6 +24,11 @@ RUN find . -type f -name "*.sh" -exec chmod +x {} \; \
 RUN find bin -type f -exec chmod +x {} \; \
   && echo "Binaries on bin/: +x applied."
 
+RUN chmod +x bin/runner
+RUN chmod +x bin/igconf
+RUN chmod +x bin/image2json
+RUN chmod +x bin/mkslot-helper
+
 ARG TARGETARCH
 RUN echo "Building for architecture: ${TARGETARCH}"
 # Example: Install different packages based on architecture
