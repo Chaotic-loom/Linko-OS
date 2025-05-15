@@ -19,6 +19,8 @@ RUN git clone https://github.com/restonic4/Linko-OS.git && cd Linko-OS
 
 # Permissions
 RUN find . -type f -name "*.sh" -exec chmod +x {} \;
+RUN find bin -type f -exec chmod +x {} \; \
+  && echo "All binaries on bin/ have +x."
 
 ARG TARGETARCH
 RUN echo "Building for architecture: ${TARGETARCH}"
