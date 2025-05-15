@@ -6,4 +6,8 @@ services:
     tty: true
     image: rpi-imagegen:latest
     volumes:
-      - ./restonic4:/home/imagegen/restonic4
+      - linko_data:/Linko-OS
+
+volumes:
+  linko_data:
+    driver: local

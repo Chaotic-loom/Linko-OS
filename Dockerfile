@@ -18,9 +18,11 @@ RUN curl -fsSL https://archive.raspberrypi.com/debian/raspberrypi.gpg.key \
 RUN git clone https://github.com/restonic4/Linko-OS.git && cd Linko-OS
 
 # Permissions
-RUN find . -type f -name "*.sh" -exec chmod +x {} \;
+RUN find . -type f -name "*.sh" -exec chmod +x {} \; \
+  && echo "Scripts .sh: +x applied."
+
 RUN find bin -type f -exec chmod +x {} \; \
-  && echo "All binaries on bin/ have +x."
+  && echo "Binaries on bin/: +x applied."
 
 ARG TARGETARCH
 RUN echo "Building for architecture: ${TARGETARCH}"
