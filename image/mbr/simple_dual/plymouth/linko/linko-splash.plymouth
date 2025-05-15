@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Linko Splash
+Description=A Linko themed splash screen
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/linko/
+ScriptFile=/usr/share/plymouth/themes/linko/linko-splash.script

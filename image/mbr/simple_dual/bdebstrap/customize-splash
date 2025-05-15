@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -eu
+
+# configure the splashscreen
+mkdir -p $1/usr/share/plymouth/themes/linko
+chmod 755 $1/usr/share/plymouth/themes/linko
+
+rsync -a ${IGIMAGE}/plymouth/themes/linko $1/usr/share/plymouth/themes/
+
+chmod 644 $1/usr/share/plymouth/themes/linko/*
+
+# set the default theme to linko
+chroot $1 plymouth-set-default-theme linko
