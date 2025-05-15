@@ -2,6 +2,7 @@
 
 debian/bookworm/arm64/base-apt
 rpi/debian/bookworm/apt
+customizations
 rpi/misc-utils
 rpi/base/essential
 rpi/boot-firmware
