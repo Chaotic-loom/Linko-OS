@@ -1,0 +1,7 @@
+---
+name: customizations
+mmdebstrap:
+  packages:
+    - plymouth
+    - plymouth-themes
+  install-recommends: false
