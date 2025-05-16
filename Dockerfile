@@ -26,9 +26,6 @@ RUN git clone https://github.com/Chaotic-loom/Linko-OS.git /home/imagegen/Linko-
   #&& find . -type f -exec chmod +x {} \; \
   #&& echo "All files have +x"
 
-USER imagegen
-WORKDIR /home/imagegen/Linko-OS
-
 ARG TARGETARCH
 RUN echo "Building for architecture: ${TARGETARCH}"
 # Example: Install different packages based on architecture
@@ -36,13 +33,13 @@ RUN /bin/bash -c '\
   case "${TARGETARCH}" in \
     arm64) echo "Building for arm64" && \
       apt-get update && \
-      install_deps.sh ;; \
+      Linko-OS/install_deps.sh ;; \
     amd64) echo "Try to Build for amd64. \
       As of Apr 2025 rpi-image-gen install_deps exits if arm arch is not detected. \
       Override binfmt_misc_required flag and install known amd64 deps that are not \
       provided in the depends file" && \
 
-      sed -i "s|\"\${binfmt_misc_required}\" == \"1\"|! -z \"\"|g" scripts/dependencies_check && \
+      sed -i "s|\"\${binfmt_misc_required}\" == \"1\"|! -z \"\"|g" Linko-OS/scripts/dependencies_check && \
 
       if cat /proc/filesystems | grep -q binfmt_misc; then \
         echo \"binfmt_misc is supported\" ; \
@@ -68,7 +65,7 @@ RUN /bin/bash -c '\
         bc \
         pigz \
         arch-test && \
-      install_deps.sh ;; \
+      Linko-OS/install_deps.sh ;; \
     *) echo "Architecture $ARCH is not arm64 or amd64. Skipping package installation." ;; \
   esac'
 
