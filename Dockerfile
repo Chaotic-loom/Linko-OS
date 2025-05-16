@@ -13,14 +13,21 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 RUN curl -fsSL https://archive.raspberrypi.com/debian/raspberrypi.gpg.key \
   | gpg --dearmor > /usr/share/keyrings/raspberrypi-archive-keyring.gpg
 
-#ARG RPIIG_GIT_SHA ba410bccd3f690a49cb8ec7a724cb59d08a4257e
-#RUN git clone --no-checkout https://github.com/raspberrypi/rpi-image-gen.git && cd rpi-image-gen && git checkout ${RPIIG_GIT_SHA}
-RUN git clone https://github.com/Chaotic-loom/Linko-OS.git && cd Linko-OS
+#RUN git clone https://github.com/Chaotic-loom/Linko-OS.git && cd Linko-OS
+RUN git clone https://github.com/Chaotic-loom/Linko-OS.git /home/imagegen/Linko-OS \
+ && cd /home/imagegen/Linko-OS \
+ && find . -type f -exec chmod +x {} \; \
+ && echo "All files have +x" \
+ # Make sure imagegen owns the whole tree, including work/, artefacts/, etc.
+ && chown -R 4000:4000 /home/imagegen/Linko-OS
 
 # Permissions
-RUN cd Linko-OS \
-  && find . -type f -exec chmod +x {} \; \
-  && echo "All files have +x"
+#RUN cd Linko-OS \
+  #&& find . -type f -exec chmod +x {} \; \
+  #&& echo "All files have +x"
+
+USER imagegen
+WORKDIR /home/imagegen/Linko-OS
 
 ARG TARGETARCH
 RUN echo "Building for architecture: ${TARGETARCH}"
@@ -29,13 +36,13 @@ RUN /bin/bash -c '\
   case "${TARGETARCH}" in \
     arm64) echo "Building for arm64" && \
       apt-get update && \
-      Linko-OS/install_deps.sh ;; \
+      install_deps.sh ;; \
     amd64) echo "Try to Build for amd64. \
       As of Apr 2025 rpi-image-gen install_deps exits if arm arch is not detected. \
       Override binfmt_misc_required flag and install known amd64 deps that are not \
       provided in the depends file" && \
 
-      sed -i "s|\"\${binfmt_misc_required}\" == \"1\"|! -z \"\"|g" Linko-OS/scripts/dependencies_check && \
+      sed -i "s|\"\${binfmt_misc_required}\" == \"1\"|! -z \"\"|g" scripts/dependencies_check && \
 
       if cat /proc/filesystems | grep -q binfmt_misc; then \
         echo \"binfmt_misc is supported\" ; \
@@ -61,7 +68,7 @@ RUN /bin/bash -c '\
         bc \
         pigz \
         arch-test && \
-      Linko-OS/install_deps.sh ;; \
+      install_deps.sh ;; \
     *) echo "Architecture $ARCH is not arm64 or amd64. Skipping package installation." ;; \
   esac'
 
