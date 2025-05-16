@@ -12,6 +12,7 @@ if /I "%CONFIRM%"=="yep" (
     echo.
     REM Obliteration
     docker system prune -a --volumes
+    docker volume rm -f linko-os_linko_data
 
     REM Docker build
     docker compose build
