@@ -5,4 +5,4 @@ ModuleName=script
 
 [script]
 ImageDir=/usr/share/plymouth/themes/linko/
-ScriptFile=/usr/share/plymouth/themes/linko/linko-splash.script
+ScriptFile=/usr/share/plymouth/themes/linko/linko.script
