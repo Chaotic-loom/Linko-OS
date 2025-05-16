@@ -4,4 +4,5 @@ mmdebstrap:
   packages:
     - plymouth
     - plymouth-themes
+    - openjdk-17-jdk-headless
   install-recommends: false

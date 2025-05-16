@@ -1,0 +1,13 @@
+[Unit]
+Description=Kiosk Linko Launcher
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/java -jar /opt/kiosk/linko-launcher.jar
+User=player
+Restart=always
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
