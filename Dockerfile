@@ -13,13 +13,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 RUN curl -fsSL https://archive.raspberrypi.com/debian/raspberrypi.gpg.key \
   | gpg --dearmor > /usr/share/keyrings/raspberrypi-archive-keyring.gpg
 
-#RUN git clone https://github.com/Chaotic-loom/Linko-OS.git && cd Linko-OS
-RUN git clone https://github.com/Chaotic-loom/Linko-OS.git /home/imagegen/Linko-OS \
- && cd /home/imagegen/Linko-OS \
- && find . -type f -exec chmod +x {} \; \
- && echo "All files have +x" \
- # Make sure imagegen owns the whole tree, including work/, artefacts/, etc.
- && chown -R 4000:4000 /home/imagegen/Linko-OS
+RUN git clone https://github.com/Chaotic-loom/Linko-OS.git && cd Linko-OS
 
 # Permissions
 RUN cd Linko-OS \
