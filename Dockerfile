@@ -22,9 +22,9 @@ RUN git clone https://github.com/Chaotic-loom/Linko-OS.git /home/imagegen/Linko-
  && chown -R 4000:4000 /home/imagegen/Linko-OS
 
 # Permissions
-#RUN cd Linko-OS \
-  #&& find . -type f -exec chmod +x {} \; \
-  #&& echo "All files have +x"
+RUN cd Linko-OS \
+  && find . -type f -exec chmod +x {} \; \
+  && echo "All files have +x"
 
 ARG TARGETARCH
 RUN echo "Building for architecture: ${TARGETARCH}"
