@@ -15,7 +15,7 @@ RUN curl -fsSL https://archive.raspberrypi.com/debian/raspberrypi.gpg.key \
 
 #ARG RPIIG_GIT_SHA ba410bccd3f690a49cb8ec7a724cb59d08a4257e
 #RUN git clone --no-checkout https://github.com/raspberrypi/rpi-image-gen.git && cd rpi-image-gen && git checkout ${RPIIG_GIT_SHA}
-RUN git clone https://github.com/restonic4/Linko-OS.git && cd Linko-OS
+RUN git clone https://github.com/Chaotic-loom/Linko-OS.git && cd Linko-OS
 
 # Permissions
 RUN cd Linko-OS \
