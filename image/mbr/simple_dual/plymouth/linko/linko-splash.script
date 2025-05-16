@@ -1,6 +1,44 @@
-image = Image("Linko.png");
-sprite = Sprite();
+// Frame totals for each animation
+loadFrames = 70;
+loopFrames = 50;
 
-sprite.SetImage(image);
-sprite.SetX(Window.GetX() + (Window.GetWidth() / 2 - image.GetWidth() / 2));
-sprite.SetY(Window.GetY() + (Window.GetHeight() / 2 - image.GetHeight() / 2));
+// Current State
+phase = "LOAD"; // LOAD, LOOP
+frameCount = 0;
+
+progress = 0;
+
+// Image arrays
+for (i = 0; i < loadFrames; i++)
+    loadImgs[i] = Image("loading.0000" + i + ".png");
+for (i = 0; i < loopFrames; i++)
+    loopImgs[i] = Image("loop.0000" + i + ".png");
+
+// Creating the main Sprite
+sprite = Sprite();
+sprite.SetX(Window.GetX() + (Window.GetWidth(0)  - loadImgs[0].GetWidth())  / 2);
+sprite.SetY(Window.GetY() + (Window.GetHeight(0) - loadImgs[0].GetHeight()) / 2);
+
+// On each frame (50 FPS)
+fun refresh_callback()
+{
+    if (phase == "LOAD") {
+        // Load phase, no loop
+        if (frameCount < loadFrames) {
+            sprite.SetImage(loadImgs[frameCount]);
+            frameCount++;
+        } else {
+            // Continue with the next animation
+            phase = "LOOP";
+            frameCount = 0;
+        }
+    }
+    else if (phase == "LOOP") {
+        // Looping animation
+        sprite.SetImage(loopImgs[frameCount % loopFrames]);
+        frameCount++;
+    }
+}
+
+// Listening the events
+Plymouth.SetRefreshFunction (refresh_callback);
