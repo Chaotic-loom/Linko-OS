@@ -4,5 +4,8 @@ mmdebstrap:
   packages:
     - plymouth
     - plymouth-themes
+    - dosfstools
+    - e2fsprogs
+    - fdisk
     - openjdk-17-jdk-headless
   install-recommends: false
