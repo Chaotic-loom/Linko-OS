@@ -3,7 +3,7 @@ Description=Kiosk Linko Launcher
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/java -jar /opt/kiosk/linko-launcher.jar
+ExecStart=/usr/bin/java -jar /opt/kiosk/LinkoLauncher.jar
 User=player
 Restart=always
 StandardOutput=journal
