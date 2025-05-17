@@ -1,9 +1,9 @@
 [Unit]
-Description=Kiosk Linko Launcher
+Description=Linko Launcher
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/java -jar /opt/kiosk/LinkoLauncher.jar
+ExecStart=/usr/bin/java -jar /opt/linko/launcher/LinkoLauncher.jar
 User=player
 Restart=always
 StandardOutput=journal
