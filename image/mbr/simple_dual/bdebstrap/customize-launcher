@@ -8,3 +8,5 @@ chmod 755 $1/opt/linko/launcher/
 rsync ../linko/launcher/LinkoLauncher.jar $1/opt/linko/launcher/
 
 rsync ../linko/launcher/linko-launcher.service $1/etc/systemd/system/linko-launcher.service
+
+systemctl --root="$1" enable linko-launcher.service
