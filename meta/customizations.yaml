@@ -8,4 +8,17 @@ mmdebstrap:
     - e2fsprogs
     - fdisk
     - openjdk-17-jdk-headless
+    - liblwjgl-java
+    - libglfw3
+    - libglfw3-dev
+    - libopenal-dev
+    - libjemalloc-dev
+    - libstb0
+    - libxrandr-dev
+    - libxinerama-dev
+    - libxcursor-dev
+    - libxi-dev
+    - libxxf86vm-dev
+    - libasound2-dev
+    - libpulse-dev
   install-recommends: false
