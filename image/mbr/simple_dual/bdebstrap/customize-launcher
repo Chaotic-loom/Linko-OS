@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -eu
+
+mkdir -p $1/opt/linko/launcher/
+chmod 755 $1/opt/linko/launcher/
+
+rsync -a ${IGIMAGE}/linko/launcher/LinkoLauncher.jar $1/opt/linko/launcher/
