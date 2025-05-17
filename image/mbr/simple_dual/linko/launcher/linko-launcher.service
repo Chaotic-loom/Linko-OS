@@ -3,7 +3,7 @@ Description=Linko Launcher
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/java -jar /opt/linko/launcher/LinkoLauncher.jar
+ExecStart=/usr/bin/java -Djava.library.path=/opt/linko/launcher/natives -jar /opt/linko/launcher/LinkoLauncher.jar
 User=player
 Restart=always
 StandardOutput=journal

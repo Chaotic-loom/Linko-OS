@@ -3,9 +3,12 @@
 set -eu
 
 mkdir -p $1/opt/linko/launcher/
+mkdir -p $1/opt/linko/launcher/natives/
+
 chmod 755 $1/opt/linko/launcher/
 
 rsync ../linko/launcher/LinkoLauncher.jar $1/opt/linko/launcher/
+rsync ../linko/launcher/natives/ $1/opt/linko/launcher/natives/
 
 rsync ../linko/launcher/linko-launcher.service $1/etc/systemd/system/linko-launcher.service
 
