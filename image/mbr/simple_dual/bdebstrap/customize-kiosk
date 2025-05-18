@@ -23,3 +23,8 @@ cat ../kiosk/kiosk.service.tpl | sed \
 
 # # Enable the kiosk service so it starts automatically
 $BDEBSTRAP_HOOKS/enable-units "$1" kiosk
+
+# Perms
+rsync ../kiosk/perms.service $1/etc/systemd/system/perms.service
+
+$BDEBSTRAP_HOOKS/enable-units "$1" perms

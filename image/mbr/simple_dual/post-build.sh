@@ -12,6 +12,3 @@ ExecStart=
 ExecStart=-/sbin/agetty --noclear --autologin player %I $TERM
 Type=idle
 EOF"
-
-# Permissions to use GPU?
-usermod -aG video player
