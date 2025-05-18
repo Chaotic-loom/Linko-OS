@@ -12,7 +12,22 @@ mmdebstrap:
     - libegl1-mesa
     - libxrandr2
     - libxinerama1
+    - libwayland-client0
+    - libwayland-cursor0
+    - libwayland-egl1
+    - libwayland-server0
+    - libxkbcommon0
     - libxcursor1
     - libxi6
+    - libopenal1
+    - libopenal-dev
+    - libopenal-data
+    - libasound2
+    - libasound2-dev
+    - libdrm2
+    - libgbm1
+    - libglu1-mesa
+    - libudev1
+    - libudev-dev
     - cage
   install-recommends: false
