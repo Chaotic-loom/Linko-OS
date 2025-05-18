@@ -23,3 +23,6 @@ cat ../kiosk/kiosk.service.tpl | sed \
 
 # # Enable the kiosk service so it starts automatically
 $BDEBSTRAP_HOOKS/enable-units "$1" kiosk
+
+# Permissions to use GPU?
+usermod -aG render $IGconf_device_user1
