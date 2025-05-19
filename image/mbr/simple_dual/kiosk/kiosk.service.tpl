@@ -6,10 +6,8 @@ After=multi-user.target
 User=<KIOSK_USER>
 TTYPath=/dev/tty1
 Environment="XDG_RUNTIME_DIR=<KIOSK_RUNDIR>"
-Restart=on-failure
-RestartSec=2
-StartLimitIntervalSec=0
-StartLimitBurst=5
+Restart=always
+RestartSec=3
 ExecStart=/usr/bin/cage -- <KIOSK_APP>
 StandardError=journal
 
