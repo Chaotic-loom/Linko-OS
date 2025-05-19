@@ -1,0 +1,14 @@
+[Unit]
+Description=Early Startup Script
+Before=kiosk.service
+DefaultDependencies=no
+After=sysinit.target
+
+[Service]
+Type=oneshot
+User=<KIOSK_USER>
+ExecStart=/usr/local/bin/updater.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

@@ -27,4 +27,8 @@ $BDEBSTRAP_HOOKS/enable-units "$1" kiosk
 # Perms
 rsync ../kiosk/perms.service $1/etc/systemd/system/perms.service
 
+# Updater
+rsync ../kiosk/kiosk-updater.service $1/etc/systemd/system/kiosk-updater.service
+
 $BDEBSTRAP_HOOKS/enable-units "$1" perms
+$BDEBSTRAP_HOOKS/enable-units "$1" kiosk-updater
