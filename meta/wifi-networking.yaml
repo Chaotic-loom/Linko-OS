@@ -6,4 +6,15 @@ mmdebstrap:
     - wpasupplicant
     - network-manager
     - network-manager-configs
+    - dbus
   install-recommends: true
+  customize-hooks:
+    # Disable systemd-networkd first
+    - chroot $1 systemctl disable systemd-networkd.service
+    - chroot $1 systemctl mask systemd-networkd.service
+
+    # Enable NetworkManager
+    - chroot $1 systemctl enable NetworkManager.service
+
+    # Ensure proper resolv.conf handling
+    - chroot $1 ln -sf /run/NetworkManager/resolv.conf /etc/resolv.conf
