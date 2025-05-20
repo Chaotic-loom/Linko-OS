@@ -7,6 +7,3 @@ mmdebstrap:
     - wireless-tools
     - net-tools
     - network-manager
-  install-recommends: false
-  customize-hooks:
-    - $META_HOOKS/systemd/netgen wlan0 > $1/etc/systemd/network/25-wireless.network
