@@ -4,6 +4,6 @@ mmdebstrap:
   packages:
     - firmware-brcm80211
     - wpasupplicant
-    - wireless-tools
-    - net-tools
     - network-manager
+    - network-manager-configs
+  install-recommends: true
