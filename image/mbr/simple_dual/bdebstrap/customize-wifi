@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -eu
+
+mkdir -p $1/etc/wpa_supplicant
+mkdir -p $1/etc/NetworkManager/system-connections/
+
+sudo chmod 755 /etc/NetworkManager/system-connections/

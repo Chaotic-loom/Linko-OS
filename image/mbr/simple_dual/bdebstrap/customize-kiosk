@@ -7,11 +7,6 @@ rsync ../linko/launcher/LinkoLauncher.jar $1/opt/linko/launcher/
 
 chmod 755 $1/opt/linko/launcher/
 
-# Write out our systemd service to unblock wifi
-rsync ../kiosk/unblock-wifi.service $1/etc/systemd/system/unblock-wifi.service
-
-mkdir -p $1/etc/wpa_supplicant
-
 APP="java -jar /opt/linko/launcher/LinkoLauncher.jar"
 
 # Write out our systemd kiosk service
