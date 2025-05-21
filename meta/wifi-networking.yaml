@@ -5,8 +5,6 @@ mmdebstrap:
     - firmware-brcm80211
     - wpasupplicant
     - network-manager
-    - network-manager-configs
-    - dbus
     - git
   install-recommends: true
   customize-hooks:
