@@ -1,0 +1,9 @@
+NAME="Linko Linux"
+ID=linko
+PRETTY_NAME="Linko Linux (based on Debian)"
+ID_LIKE=debian
+VERSION_ID="1.0"
+VERSION="1.0 (Linko)"
+HOME_URL="https://chaotic-loom.com/linko"
+SUPPORT_URL="https://chaotic-loom.com/linko/support"
+BUG_REPORT_URL="https://chaotic-loom.com/linko/bugs"
