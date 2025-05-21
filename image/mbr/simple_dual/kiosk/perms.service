@@ -5,7 +5,7 @@ Before=getty.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/expand-rootfs.sh
+ExecStart=/usr/local/bin/perms.sh
 RemainAfterExit=yes
 User=root
 Group=root
