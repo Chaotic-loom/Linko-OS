@@ -12,6 +12,3 @@ ExecStart=
 ExecStart=-/sbin/agetty --noclear --autologin player %I $TERM
 Type=idle
 EOF"
-
-usermod -a -G video,netdev player
-chmod 755 /opt/linko/
