@@ -1,0 +1,7 @@
+polkit.addRule(function(action, subject) {
+    if ((action.id.startsWith("org.freedesktop.NetworkManager.") ||
+         action.id === "org.freedesktop.ModemManager1.Device.Control") && // Example additional permission
+        subject.user === "player") {
+        return polkit.Result.YES;
+    }
+});
