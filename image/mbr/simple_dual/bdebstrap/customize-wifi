@@ -6,3 +6,6 @@ mkdir -p $1/etc/wpa_supplicant
 mkdir -p $1/etc/NetworkManager/system-connections/
 
 chmod 755 $1/etc/NetworkManager/system-connections/
+
+mkdir -p $1/etc/polkit1-1/rules.d/
+rsync ../kiosk/50-nmcli.rules $1/etc/polkit1-1/rules.d/
