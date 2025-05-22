@@ -7,6 +7,6 @@ mkdir -p $1/etc/NetworkManager/system-connections/
 
 chmod 755 $1/etc/NetworkManager/system-connections/
 
-mkdir -p $1/etc/polkit-1/rules.d/
-chmod 755 $1/etc/polkit-1/rules.d/
-rsync ../kiosk/49-kiosk-nmcli.rules $1/etc/NetworkManager/49-kiosk-nmcli.rules
+#mkdir -p $1/etc/polkit-1/rules.d/
+#chmod 755 $1/etc/polkit-1/rules.d/
+#rsync ../kiosk/49-kiosk-nmcli.rules $1/etc/NetworkManager/49-kiosk-nmcli.rules
