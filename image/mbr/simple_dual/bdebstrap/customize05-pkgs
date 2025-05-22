@@ -10,6 +10,3 @@ case $IGconf_image_rootfs_type in
 esac
 
 chroot $1 apt install -y "${pkgs[@]}"
-
-usermod -a -G video,netdev player
-chmod 755 /opt/linko/

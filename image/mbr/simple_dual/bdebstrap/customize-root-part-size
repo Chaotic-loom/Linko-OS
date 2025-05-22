@@ -1,9 +1,0 @@
-#!/bin/sh
-
-set -eu
-
-# Write out our systemd service
-rsync ../root-partition-resize-conf/expand-rootfs.service $1/etc/systemd/system/expand-rootfs.service
-
-# trigger the systemd service to run on first boot
-$BDEBSTRAP_HOOKS/enable-units "$1" expand-rootfs

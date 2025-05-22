@@ -2,6 +2,12 @@
 
 set -eu
 
+# Write out our systemd service
+rsync ../kiosk/first-boot.service $1/etc/systemd/system/first-boot.service
+
+# trigger the systemd service to run on first boot
+$BDEBSTRAP_HOOKS/enable-units "$1" first-boot
+
 mkdir -p $1/opt/linko/launcher/
 rsync ../linko/launcher/LinkoLauncher.jar $1/opt/linko/launcher/
 
