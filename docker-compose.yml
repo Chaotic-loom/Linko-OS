@@ -6,8 +6,4 @@ services:
     tty: true
     image: rpi-imagegen:latest
     volumes:
-      - linko_data:/Linko-OS
-
-volumes:
-  linko_data:
-    driver: local
+      - ./Linko-OS:/Linko-OS
