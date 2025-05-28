@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
-docker-compose build
-docker-compose run --rm rpi_imagegen bash
+sudo systemctl start docker
+
+sudo docker compose build
+sudo docker compose run --rm rpi_imagegen bash
+
+sudo systemctl stop docker
