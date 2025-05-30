@@ -10,10 +10,10 @@ Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u <KIOSK_USER>)/
 Restart=always
 RestartSec=3
 ExecStart=/bin/sh -c '\
-  exec Xorg :0 -nolisten tcp vt1 \
-    && sleep 1 \
-    && su -l %u -c "matchbox-window-manager --use_cursor_keys & \
-                     <KIOSK_APP>"'
+    Xorg :0 -nolisten tcp vt1 -novtswitch -logfile /tmp/Xorg.log -verbose 3 & \
+    sleep 2; \
+    su -l %u -c "matchbox-window-manager --use_cursor_keys & \
+                 exec <KIOSK_APP>"'
 StandardError=journal
 
 [Install]
