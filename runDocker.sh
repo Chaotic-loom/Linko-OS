@@ -12,7 +12,13 @@ docker system prune -a --volumes
 sudo docker compose build --no-cache
 sudo docker compose run --rm rpi_imagegen
 
+sudo docker compose down \
+  --rmi local
+  --volumes
+  --remove-orphans
+
+docker system prune -a --volumes
 
 sudo systemctl stop docker
 
-#sudo cp work/linko/deploy/linko.img /host-downloads/linko.img
+#docker cp 946b14e1c652:/home/imagegen/Linko-OS/work/linko/deploy/linko.img ~/Downloads/

@@ -9,11 +9,7 @@ Environment="XDG_RUNTIME_DIR=<KIOSK_RUNDIR>"
 Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u <KIOSK_USER>)/bus"
 Restart=always
 RestartSec=3
-ExecStart=/bin/sh -c '\
-    Xorg :0 -nolisten tcp vt1 -novtswitch -logfile /tmp/Xorg.log -verbose 3 & \
-    sleep 2; \
-    su -l %u -c "matchbox-window-manager --use_cursor_keys & \
-                 exec <KIOSK_APP>"'
+ExecStart=/usr/bin/cage -- <KIOSK_APP>
 StandardError=journal
 
 [Install]
