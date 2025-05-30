@@ -10,13 +10,9 @@ sudo docker compose down \
 docker system prune -a --volumes
 
 sudo docker compose build --no-cache
-sudo docker compose run --rm \
-  --entrypoint bash \
-  rpi_imagegen -ic "\
-    cd Linko-OS && \
-    ./linko-build.sh && \
-    cp work/linko/deploy/linko.img /host-downloads/linko.img && \
-    exec bash"
+sudo docker compose run --rm rpi_imagegen
 
 
 sudo systemctl stop docker
+
+#sudo cp work/linko/deploy/linko.img /host-downloads/linko.img
