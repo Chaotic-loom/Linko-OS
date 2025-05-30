@@ -21,4 +21,4 @@ docker system prune -a --volumes
 
 sudo systemctl stop docker
 
-#docker cp 946b14e1c652:/home/imagegen/Linko-OS/work/linko/deploy/linko.img ~/Downloads/
+#docker cp 63de2036f016:/home/imagegen/Linko-OS/work/linko/deploy/linko.img ~/Downloads/

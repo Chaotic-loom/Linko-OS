@@ -29,5 +29,5 @@ mmdebstrap:
     - libglu1-mesa
     - libudev1
     - libudev-dev
-    - xorg
+    - cage
   install-recommends: false
