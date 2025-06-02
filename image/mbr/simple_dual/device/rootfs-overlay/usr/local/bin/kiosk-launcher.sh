@@ -9,9 +9,6 @@ JAVA_ARGS=""
 CRASH_ARG="crashed"
 ######################
 
-# switch to VT1 so Lanterna can draw there
-chvt 1
-
 # redirect all output to /dev/tty1
 exec >/dev/tty1 2>&1 </dev/tty1
 
@@ -22,7 +19,7 @@ if [ "$(id -un)" != "$USER_TO_RUN" ]; then
 fi
 
 while true; do
-  echo "Starting LWJGL kiok..." >&2
+  echo "Starting LWJGL kiosk..." >&2
 
   # Launch the LWJGL kiosk.
   "$JAVA_CMD" $JAVA_ARGS -cp "$JAR_PATH" "$LWJGL_MAIN_CLASS"
