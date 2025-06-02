@@ -13,13 +13,10 @@ rsync ../linko/launcher/LinkoLauncher.jar $1/home/player/linko/launcher/
 
 chmod 755 $1/home/player/linko/launcher/
 
-APP="java -jar /home/player/linko/launcher/LinkoLauncher.jar"
-
 # Write out our systemd kiosk service
 cat ../kiosk/kiosk.service.tpl | sed \
    -e "s|<KIOSK_USER>|$IGconf_device_user1|g" \
    -e "s|<KIOSK_RUNDIR>|\/home\/$IGconf_device_user1|g" \
-   -e "s|<KIOSK_APP>|$APP|g" \
    > $1/etc/systemd/system/kiosk.service
 
 # # Enable the kiosk service so it starts automatically
