@@ -8,12 +8,12 @@ rsync ../kiosk/first-boot.service $1/etc/systemd/system/first-boot.service
 # trigger the systemd service to run on first boot
 $BDEBSTRAP_HOOKS/enable-units "$1" first-boot
 
-mkdir -p $1/opt/linko/launcher/
-rsync ../linko/launcher/LinkoLauncher.jar $1/opt/linko/launcher/
+mkdir -p $1/home/player/linko/launcher/
+rsync ../linko/launcher/LinkoLauncher.jar $1/home/player/linko/launcher/
 
-chmod 755 $1/opt/linko/launcher/
+chmod 755 $1/home/player/linko/launcher/
 
-APP="java -jar /opt/linko/launcher/LinkoLauncher.jar"
+APP="java -jar /home/player/linko/launcher/LinkoLauncher.jar"
 
 # Write out our systemd kiosk service
 cat ../kiosk/kiosk.service.tpl | sed \

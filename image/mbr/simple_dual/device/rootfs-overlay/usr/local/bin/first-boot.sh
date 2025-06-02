@@ -7,8 +7,8 @@ if [ ! -f /boot/firstboot_done ]; then
 
     # Grant permissions
     usermod -a -G video,render,netdev player
-    chmod 755 /opt/linko/
-    chown player /opt/linko/
+    chmod 755 /home/player/linko/
+    chown player /home/player/linko/
 
     # Create flag and reboot
     touch /boot/firstboot_done

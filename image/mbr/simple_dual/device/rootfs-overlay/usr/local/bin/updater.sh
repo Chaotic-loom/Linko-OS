@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LAUNCHER_DIR="/opt/linko/launcher"
+LAUNCHER_DIR="/home/player/linko/launcher"
 UPDATE_JAR="$LAUNCHER_DIR/Update.jar"
 TARGET_JAR="$LAUNCHER_DIR/LinkoLauncher.jar"
 FLAG_FILE="/boot/updated"
