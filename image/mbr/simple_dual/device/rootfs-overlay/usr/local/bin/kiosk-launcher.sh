@@ -11,7 +11,7 @@ CRASH_ARG="crashed"
 ######################
 
 # redirect all output to /dev/tty1
-exec >/dev/tty1 2>&1 </dev/tty1
+#exec >/dev/tty1 2>&1 </dev/tty1
 
 # run under the kiosk user
 if [ "$(id -un)" != "$USER_TO_RUN" ]; then
@@ -42,7 +42,7 @@ while true; do
 
   # Launch the Lanterna‐based crash handler. It should attach to /dev/tty1
   # and only return once the user selects something.
-  "$JAVA_CMD" $JAVA_ARGS -cp "$JAR_PATH" "$LWJGL_MAIN_CLASS" CRASH_ARG
+  "$JAVA_CMD" $JAVA_ARGS -cp "$JAR_PATH" "$LWJGL_MAIN_CLASS" "$CRASH_ARG"
   HANDLER_EXIT=$?
 
   # Based on the exit code of the crash handler, decide what to do:
