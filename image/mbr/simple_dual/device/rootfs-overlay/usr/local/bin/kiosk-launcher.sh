@@ -5,6 +5,7 @@ USER_TO_RUN="player"
 JAR_PATH="/home/player/linko/launcher/LinkoLauncher.jar"
 LWJGL_MAIN_CLASS="com.chaotic_loom.core.Main"
 JAVA_CMD="/usr/bin/java"
+CAGE="/usr/bin/cage"
 JAVA_ARGS=""
 CRASH_ARG="crashed"
 ######################
@@ -22,7 +23,7 @@ while true; do
   echo "Starting LWJGL kiosk..." >&2
 
   # Launch the LWJGL kiosk.
-  "$JAVA_CMD" $JAVA_ARGS -cp "$JAR_PATH" "$LWJGL_MAIN_CLASS"
+  "$CAGE" -- "$JAVA_CMD" $JAVA_ARGS -cp "$JAR_PATH" "$LWJGL_MAIN_CLASS"
 
   EXIT_CODE=$?
   if [ $EXIT_CODE -eq 0 ]; then
